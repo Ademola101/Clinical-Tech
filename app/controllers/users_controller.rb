@@ -12,4 +12,8 @@ class UsersController < ApplicationController
   def patient
     @patients = Patient.all
   end
+
+  def group
+    @groups = Group.all
+  end
 end
