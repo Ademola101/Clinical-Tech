@@ -8,9 +8,9 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = Patient.new(patient_params)
+    @patient = current_user.created_patients.new(patient_params)
     if @patient.save
-      redirect_to patient_index_path
+      redirect_to my_patients_path
     else
       render :new, status: :unprocessable_entity
     end
