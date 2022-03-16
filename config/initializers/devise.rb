@@ -1,17 +1,3 @@
-class TurboFailureApp < Devise::FailureApp
-  def respond
-    if request_format == :turbo_stream
-      redirect
-    else
-      super
-    end
-  end
-
-  def skip_format?
-    %w(html turbo_stream */*).include? request_format.to_s
-  end
-end
-
 # Assuming you have not yet modified this file, each configuration option below
 # is set to its default value. Note that some are commented out while others
 # are not: uncommented lines are intended to protect your configuration from
@@ -26,13 +12,11 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '7631b25364a858ca17e7181b0d1772aa59a6e283e18aafecb41ec5819ceb035d83dcf45e98aaffa5faf2b601fb062c128fcf0678f9c4f3eac2086f510063a7b3'
+  # config.secret_key = 'bb0ce7ee8b7e9ccebac50210f77a53640b8771b37fa42377507c9dbec4e8dd6d7009db00c040ff212a272b852578bdb50ceca2c68bd7613a64ad5364a31fbd3d'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  
-  #! Change parent controller with custom controller
-  config.parent_controller = 'Users::DeviseController'
+  # config.parent_controller = 'DeviseController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -60,7 +44,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  config.authentication_keys = [:username]
+  # config.authentication_keys = [:email]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the
@@ -140,7 +124,7 @@ Devise.setup do |config|
   config.stretches = Rails.env.test? ? 1 : 12
 
   # Set up a pepper to generate the hashed password.
-  # config.pepper = 'd3246b12f47134dbd11146093342c63b068f89d767fdb0df6af01afcd7d592d3e08fc9e4cf9b3453079067293f840da3bfd0bff77c0b3aa96cd8c616bec50457'
+  # config.pepper = '7a09b18862524b77975ff1947fd1dbe2c24f3ed771654d86e37e6719ac3e4dcaeba2254b2f888929cf67faaeba97681be9ef385225186a57824b0c9cbd84be43'
 
   # Send a notification to the original email when the user's email is changed.
   # config.send_email_changed_notification = false
@@ -277,9 +261,7 @@ Devise.setup do |config|
   # should add them to the navigational formats lists.
   #
   # The "*/*" below is required to match Internet Explorer requests.
-  
-  #! Override navigational_formats
-  config.navigational_formats = ['*/*', :html, :turbo_stream]
+  # config.navigational_formats = ['*/*', :html]
 
   # The default HTTP method used to sign out a resource. Default is :delete.
   config.sign_out_via = :delete
@@ -293,13 +275,10 @@ Devise.setup do |config|
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
   #
-  
-  #! Set custom failure
-  config.warden do |manager|
-    manager.failure_app = TurboFailureApp
+  # config.warden do |manager|
   #   manager.intercept_401 = false
   #   manager.default_strategies(scope: :user).unshift :some_external_strategy
-  end
+  # end
 
   # ==> Mountable engine configurations
   # When using Devise inside an engine, let's call it `MyEngine`, and this engine
