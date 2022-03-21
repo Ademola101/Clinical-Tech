@@ -1,4 +1,5 @@
 class PatientsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   def index
     @patients = Patient.all
   end

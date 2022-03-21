@@ -4,5 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :created_patients, foreign_key: 'creator_id', class_name: 'Patient'
+  has_many :groups
+  has_many :patients, through: :groups
+  has_many :created_patients, foreign_key: "creator_id", class_name: 'Patient'
 end

@@ -10,15 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_16_082609) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_21_090118) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "icon"
     t.integer "user_id", null: false
-    t.integer "patient_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["patient_id"], name: "index_groups_on_patient_id"
+    t.integer "patient_id", null: false
     t.index ["user_id"], name: "index_groups_on_user_id"
   end
 
@@ -43,7 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_16_082609) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "groups", "patients"
   add_foreign_key "groups", "users"
   add_foreign_key "patients", "users", column: "creator_id"
 end
