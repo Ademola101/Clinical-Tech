@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
   def patient
     @patients = Patient.all
+    @sum_of_amount = @patients.sum('amount')
   end
 
   def group

@@ -1,4 +1,6 @@
 <div>
+
+<p> Total amount payable by all the patients is  &#8358 <%=  @sum_of_amount%>  </p>
 <% if @patients%>
 
 <p>
@@ -10,8 +12,8 @@
 </div>
 
 <div>
+<p>&#8358 <%= patient.amount%></p>
 
-<%= patient.amount%>
 </div>
 <%end%>
 </p>

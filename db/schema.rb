@@ -10,24 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_21_090118) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_23_175558) do
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.string "icon"
-    t.integer "user_id", null: false
+    t.integer "created_group_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "patient_id", null: false
-    t.index ["user_id"], name: "index_groups_on_user_id"
+    t.index ["created_group_id"], name: "index_groups_on_created_group_id"
   end
 
   create_table "patients", force: :cascade do |t|
     t.string "name"
     t.integer "amount"
-    t.integer "creator_id", null: false
+    t.integer "patient_creator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["creator_id"], name: "index_patients_on_creator_id"
+    t.integer "patients_group_id", null: false
+    t.index ["patient_creator_id"], name: "index_patients_on_patient_creator_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,6 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_03_21_090118) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "groups", "users"
-  add_foreign_key "patients", "users", column: "creator_id"
+  add_foreign_key "groups", "users", column: "created_group_id"
+  add_foreign_key "patients", "users", column: "patient_creator_id"
 end
