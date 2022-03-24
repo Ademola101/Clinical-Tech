@@ -8,13 +8,12 @@ class PatientsController < ApplicationController
     @patient = Patient.new
     
     # 3.times {@patient.build_patients_group}
-    @patient.build_patients_group
-    @patient.build_patient_creator
+    
   end
 
   def create
     @patient = current_user.patients.build(patient_params)
-    @patient.patient_creator= current_user
+    @patient.patient_creator_id= current_user.id
     if @patient.save
       redirect_to my_patients_path
     else
@@ -25,6 +24,6 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit(:patient_creator_id, :name, :amount, patients_groups_attributes: [:name, :icon])
+    params.require(:patient).permit( :name, :amount,:group_id)
   end
 end

@@ -1,7 +1,7 @@
 
 <p>Patient Information</p>
 
-<div> <%= form_for model: patient do |form|%>
+<div> <%= form_for @patient do |form|%>
 
 <p> Creater by user  </p > <%= form.collection_select :patient_creator_id, User.all, :id, :email %> 
  <div>
@@ -17,20 +17,11 @@
       
 </div> 
 <h2>Assign group</h2>
-  <%= form.fields_for :patients_groups do |group_form| %>
-  <div>
-  <%= group_form.label :name %> <br>
-    <%= group_form.text_field :name, placeholder: "name" %>
-    </div>
-    
-    <div>
-  <%= group_form.label :icon %> <br>
-    <%= group_form.text_field :icon, placeholder: "icon" %>
-    </div>
-    <p>
-    <%= form.collection_select :patients_group_id, Group.all, :id, :name %> 
-    </p>
-    <% end %>
+<div><%= form.label :select_group %>
+
+<%= select('patients', 'group_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %>
+</div>
+
   <br />
 
 <div> <%= form.submit%> </div>
