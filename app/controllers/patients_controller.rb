@@ -1,7 +1,7 @@
 class PatientsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
-    @patients = Patient.all
+    @patients_without_group = Patient.without_group(current_user.id)
   end
 
   def new
@@ -12,7 +12,7 @@ class PatientsController < ApplicationController
   end
 
   def create
-    @patient = current_user.patients.build(patient_params)
+    @patient = Patient.new(patient_params)
     @patient.patient_creator_id= current_user.id
     if @patient.save
       redirect_to my_patients_path
@@ -24,6 +24,6 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit( :name, :amount,:group_id)
+    params.require(:patient).permit( :name, :amount,:groups_id)
   end
 end

@@ -1,28 +1,22 @@
 <div>
 
 <p> Total amount payable by all the patients is  &#8358 <%=  @sum_of_amount%>  </p>
-<% if @patients%>
+<p>External Patients</p>
 
-<p>
-<% @patients.each do |patient|%>
-<div>
+<ul> <% if @patients_with_group.any? %> 
+<% @patients_with_group.each do |patient|%>
+<li>
+<%= patient.name %>
+<%= patient.amount %>
 
-<%= patient.name%>
-
-</div>
-
-<div>
-<p>&#8358 <%= patient.amount%></p>
-
-</div>
+</li>
 <%end%>
-</p>
+</ul>
+<% else %>
+<p> No patient without group</p>
 
-<% else%>
+<% end%>
 
-<p> You have not added any patient</p>
-</div>
-
-<%end%>
 
 <p><%= link_to('Add new patient', new_patient_url	)%> </p>
+<p> <%= link_to('External Patients', patients_path)%> </p>

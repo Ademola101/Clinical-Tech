@@ -3,7 +3,7 @@
 
 <div> <%= form_for @patient do |form|%>
 
-<p> Creater by user  </p > <%= form.collection_select :patient_creator_id, User.all, :id, :email %> 
+<p> Creater by user  </p > <%= current_user.email%> 
  <div>
 <%= form.label :name %> <br>
 <%= form.text_field :name%>
@@ -17,9 +17,12 @@
       
 </div> 
 <h2>Assign group</h2>
+
 <div><%= form.label :select_group %>
 
-<%= select('patients', 'group_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %>
+<%# <%= select('patients', 'groups_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %> 
+
+<%= form.collection_select :groups_id, Group.all, :id, :name %>
 </div>
 
   <br />
@@ -27,3 +30,4 @@
 <div> <%= form.submit%> </div>
 
 <%end%></div>
+

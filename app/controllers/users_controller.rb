@@ -10,8 +10,8 @@ class UsersController < ApplicationController
   end
 
   def patient
-    @patients = Patient.all
-    @sum_of_amount = @patients.sum('amount')
+    @patients_with_group = Patient.with_group(current_user.id)
+    @sum_of_amount = @patients_with_group.sum('amount')
   end
 
   def group

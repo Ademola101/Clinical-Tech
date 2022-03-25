@@ -1,0 +1,15 @@
+<p>External Patients</p>
+
+<ul> <% if @patients_without_group.any? %> 
+<% @patients_without_group.each do |patient|%>
+<li>
+<%= patient.name %>
+<%= patient.amount %>
+
+</li>
+<%end%>
+</ul>
+<% else %>
+<p> No patient without group</p>
+
+<% end%>
