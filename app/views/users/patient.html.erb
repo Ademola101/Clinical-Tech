@@ -1,7 +1,7 @@
 <div>
 
-<p> Total amount payable by all the patients is  &#8358 <%=  @sum_of_amount%>  </p>
-<p>External Patients</p>
+<p> Total amount payable by all  patients is  &#8358 <%=  @sum_of_amount%>  </p>
+<p>All Patients</p>
 
 <ul> <% if @patients_with_group.any? %> 
 <% @patients_with_group.each do |patient|%>
@@ -20,3 +20,4 @@
 
 <p><%= link_to('Add new patient', new_patient_url	)%> </p>
 <p> <%= link_to('External Patients', patients_path)%> </p>
+<p> <%= link_to("Back", :back)%> </p>

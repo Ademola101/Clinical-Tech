@@ -1,10 +1,13 @@
+
 <p>External Patients</p>
 
 <ul> <% if @patients_without_group.any? %> 
+<p> The sum of amount payable by external patients is &#8358 <%=  @sum_of_amount%> </p>
 <% @patients_without_group.each do |patient|%>
 <li>
-<%= patient.name %>
-<%= patient.amount %>
+Name of Patient: <%= patient.name %>
+<br>
+Amount &#8358 <%= patient.amount %>
 
 </li>
 <%end%>
@@ -13,3 +16,5 @@
 <p> No patient without group</p>
 
 <% end%>
+
+<p> <%= link_to("Back", :back)%> </p>

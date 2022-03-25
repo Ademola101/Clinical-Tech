@@ -2,6 +2,7 @@ class PatientsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   def index
     @patients_without_group = Patient.without_group(current_user.id)
+    @sum_of_amount = @patients_without_group.sum('amount')
   end
 
   def new

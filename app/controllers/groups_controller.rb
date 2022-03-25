@@ -11,6 +11,9 @@ class GroupsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+
+  def show
+    @group = Group.find(params[:id])
   end
 
   private
