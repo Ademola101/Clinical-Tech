@@ -5,7 +5,7 @@
 <% @groups.each do |group|%>
 <div>
 
-<%= group.name%>
+<%=link_to(group.name, group)%>
 
 </div>
 
@@ -27,5 +27,5 @@
 
 <%end%>
 
-<p><%= link_to('Add new group', new_groups_path	)%> </p>
+<p><%= link_to('Add new group', new_group_path	)%> </p>
 <p> <%= link_to("Back", :back)%> </p>

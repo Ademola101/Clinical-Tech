@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_08_124925) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_08_222346) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -64,8 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_124925) do
     t.integer "patient_creator_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "groups_id"
-    t.index ["groups_id"], name: "index_patients_on_groups_id"
+    t.integer "group_id"
+    t.index ["group_id"], name: "index_patients_on_group_id"
     t.index ["patient_creator_id"], name: "index_patients_on_patient_creator_id"
   end
 
@@ -84,6 +84,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_08_124925) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "groups", "users"
-  add_foreign_key "patients", "groups", column: "groups_id"
+  add_foreign_key "patients", "groups"
   add_foreign_key "patients", "users", column: "patient_creator_id"
 end

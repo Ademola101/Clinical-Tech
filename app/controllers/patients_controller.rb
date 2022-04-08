@@ -25,6 +25,6 @@ class PatientsController < ApplicationController
   private
 
   def patient_params
-    params.require(:patient).permit( :name, :amount,:groups_id)
+    params.require(:patient).permit( :name, :amount,:group_id)
   end
 end

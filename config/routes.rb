@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :patients
-  resource :groups
+  resources :groups
 
   get '/my-patients', to: 'users#patient'
-  get '/my-groups', to: 'users#group'
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

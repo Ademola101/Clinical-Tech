@@ -22,7 +22,7 @@
 
 <%# <%= select('patients', 'groups_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %> 
 
-<%= form.collection_select :groups_id, Group.all, :id, :name, :include_blank => true %>
+<%= form.collection_select :group_id, Group.all, :id, :name, :include_blank => true %>
 </div>
 
   <br />
