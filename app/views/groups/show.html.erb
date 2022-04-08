@@ -2,3 +2,17 @@
 
 The group patient transactions
 </p>
+
+<section>
+<% @group.patients.each do |gr|%>
+<div class = "d-flex">
+<div>
+
+<%= gr.name%> <br>
+<%= gr.amount%>
+</div>
+</div>
+
+<% end%>
+</section>
+<p> <%= link_to("Back", :back)%> </p>
