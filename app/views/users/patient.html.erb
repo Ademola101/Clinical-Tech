@@ -3,7 +3,7 @@
 <p> Total amount payable by all  patients is  &#8358 <%=  @sum_of_amount%>  </p>
 <p>All Patients</p>
 
-<ul> <% if @patients_with_group.any? %> 
+<ul> <% if @patients_with_group %> 
 <% @patients_with_group.each do |patient|%>
 <li>
 <%= patient.name %>

@@ -11,12 +11,14 @@ class GroupsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
 
   def show
     @group = Group.find(params[:id])
   end
 
   private
+
   def groups_params
     params.require(:group).permit(:name, :icon)
   end

@@ -11,10 +11,7 @@
   </head>
 
   <body>
-<header><p> <%= link_to("home", root_path)%> </p>
-<%= link_to('Sign up', new_user_registration_path	)%>
-</header>
-
+<%= render 'groups/header' %>
     <%= yield %>
   </body>
 </html>
