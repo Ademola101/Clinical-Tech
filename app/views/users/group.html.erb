@@ -13,6 +13,10 @@
 
 <%= group.icon%>
 </div>
+
+<div>
+<%= image_tag group.thumbnail, class:"img_res" if group.thumbnail.present? %>
+</div>
 <%end%>
 </p>
 

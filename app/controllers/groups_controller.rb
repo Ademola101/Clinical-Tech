@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
 
   def new
     @group = Group.new
@@ -20,6 +21,6 @@ class GroupsController < ApplicationController
   private
 
   def groups_params
-    params.require(:group).permit(:name, :icon)
+    params.require(:group).permit(:name, :icon, :thumbnail)
   end
 end
