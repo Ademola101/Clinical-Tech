@@ -15,8 +15,10 @@ class PatientsController < ApplicationController
   def create
     @patient = Patient.new(patient_params)
     @patient.patient_creator_id= current_user.id
-    if @patient.save
+    if @patient.save && @patient.group.present?
       redirect_to my_patients_path
+    elsif @patient.save && @patient.group.nil?
+      redirect_to patients_path
     else
       render :new, status: :unprocessable_entity
     end
