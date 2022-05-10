@@ -3,11 +3,20 @@
 <div class = "mt-2">
 
 
-<h1>All Patients</h1>
-<p class="patient-fw"> Total amount payable by all  patients <div> &#8358 <%=  @sum_of_amount%>  </div>  </p>
+<h1 class = "mt-4">All Patients</h1>
+<section class="d-flex justify-content-center align-items-center">
+
+<div class = "fs-4 border me-3 fw-bold p_color"> 
+Total amount payable by all  patients </div><span class = "border fw-bold p_color"> &#8358 <%=  @sum_of_amount%>  </span>  
+</section>
+<% count = 0 %>
 <ul> <% if @patients_with_group %> 
 <% @patients_with_group.each do |patient|%>
-<li class = "d-flex flex-column"> <p > <strong>Name:</strong> 
+
+<li class = "d-flex flex-column"> 
+<p> <%= count += 1%></p>
+
+<p > <strong>Name:</strong> 
 <%= patient.name %> </p>
 <p > <strong> Amount: </strong> <%= patient.amount %>
 </p>
