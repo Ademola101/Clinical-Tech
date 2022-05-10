@@ -9,12 +9,12 @@
 <div class = "fs-4 border me-3 fw-bold p_color"> 
 Total amount payable by all  patients </div><span class = "border fw-bold p_color"> &#8358 <%=  @sum_of_amount%>  </span>  
 </section>
-<% count = 0 %>
+
 <ul> <% if @patients_with_group %> 
-<% @patients_with_group.each do |patient|%>
+<% @patients_with_group.each_with_index do |patient,index|%>
 
 <li class = "d-flex flex-column"> 
-<p> <%= count += 1%></p>
+<p> <%= index + 1%></p>
 
 <p > <strong>Name:</strong> 
 <%= patient.name %> </p>
