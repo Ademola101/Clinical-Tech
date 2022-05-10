@@ -1,14 +1,17 @@
-<h1>Welcome</h1>
+<h3 class = "d-flex justify-content-center align-items-center fs-4 m-4">Welcome</h3>
+<div class = "d-flex justify-content-center align-items-center w-75 m-auto ">
+<strong class = "w-25 fw-bold">
 
-<p>
+<%= link_to('My Patients', my_patients_path, class:"fw-bold fs-3 text-secondary")%>
 
-<%= link_to('My Patients', my_patients_path)%>
+</strong>
+<strong class = "w-25 fw-bold"> <%= link_to('External Patients', patients_path, class:"fw-bold fs-3 text-secondary")%> </strong>
+<p class = "w-25 fw-bold fs-1 ">
+
+<%= link_to('My Groups', groups_path,class:"fw-bold fs-1 text-secondary")%>
 
 </p>
-<p> <%= link_to('External Patients', patients_path)%> </p>
-<p>
 
-<%= link_to('My Groups', groups_path)%>
 
-</p>
+</div>
 
