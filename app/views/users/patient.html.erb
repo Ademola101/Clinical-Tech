@@ -2,9 +2,9 @@
 
 <div class = "mt-2">
 
-<p class="patient-fw"> Total amount payable by all  patients is  &#8358 <%=  @sum_of_amount%>  </p>
-<p>All Patients</p>
 
+<h1>All Patients</h1>
+<p class="patient-fw"> Total amount payable by all  patients <div> &#8358 <%=  @sum_of_amount%>  </div>  </p>
 <ul> <% if @patients_with_group %> 
 <% @patients_with_group.each do |patient|%>
 <li class = "d-flex flex-column"> <p > <strong>Name:</strong> 
