@@ -1,24 +1,68 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Clinical TECH
 
-Things you may want to cover:
+Health tech application that groups patients with similar ailments to match with a specialized doctor for a medical appointment.
 
-* Ruby version
 
-* System dependencies
+##### Prerequisites
 
-* Configuration
+The setups steps expect following tools installed on the system.
 
-* Database creation
+* Github
+* Ruby [3.0.1](https://github.com/ruby/ruby/tree/ruby_3_1)
+* Rails [7.0.1](https://github.com/rails/rails/tree/v7.0.1)
 
-* Database initialization
+## 1. Check out the repository
 
-* How to run the test suite
+```shell
+git clone [git@github.com:shadrxcc/private-events.git](https://github.com/shadrxcc/private-events)
+cd Private-Events
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## 2. Check your Ruby version
 
-* Deployment instructions
+```shell
+ruby -v
+```
 
-* ...
+The ouput should start with `ruby 3.0.1`
+
+## 3. Install dependencies
+
+Using [Bundler](https://github.com/bundler/bundler) and [Yarn](https://github.com/yarnpkg/yarn):
+
+```shell
+bundle && yarn
+```
+
+## 4. Initialize the database
+
+```shell
+rails db:create db:migrate db:seed
+```
+
+## 5. Start the server
+
+Start the server by running:
+
+```ruby
+rails s
+```
+
+Navigate to the new route <http://127.0.0.1:3000>
+
+## Built With
+
+* Ruby
+* Ruby on Rails
+
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](https://github.com/Ademola101/private-events/issues).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
