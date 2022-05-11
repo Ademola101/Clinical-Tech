@@ -8,26 +8,25 @@
 
 <form class="form-control"> 
  <div>
-<%= form.label :name, class:"form-label"%> <br>
-<%= form.text_field :name, size:"48"%>
+<%= form.label :name, class:"form-label fw-bold"%> <br>
+<%= form.text_field :name, size:"48", class:"form-control"%>
 
       
 </div> 
-<div >
+<div class = "mt-2" >
 
-<%= form.label :amount %> <br>
-<%= form.text_field :amount, size:"48", class:"form-control"%>
+<%= form.label :amount, class:"form-label fw-bold" %> <br>
+<%= form.text_field :amount, size:"48", class:"form-control "%>
       
 </div> 
-<h2>Assign group</h2>
 
-<div><%= form.label :select_group %>
+<div><%= form.label "Select patient group", class: "mt-2" %>
 
 <%# <%= select('patients', 'groups_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %> 
 
-<%= form.collection_select :group_id, Group.all, :id, :name, :include_blank => true, class:"form-select" %>
-</div>
 
+</div>
+<%= form.collection_select(:group_id, Group.all, :id, :name, {include_blank: true} ,{class:"form-select"}) %>
   <br />
 
 <div> <%= form.submit%> </div>
