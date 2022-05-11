@@ -4,25 +4,36 @@
 
 
 <h1 class = "mt-4">All Patients</h1>
-<section class="d-flex justify-content-center align-items-center">
-
-<div class = "fs-4 border me-3 fw-bold p_color"> 
-Total amount payable by all  patients </div><span class = "border fw-bold p_color"> &#8358 <%=  @sum_of_amount%>  </span>  
-</section>
 
 <ul> <% if @patients_with_group %> 
-<% @patients_with_group.each_with_index do |patient,index|%>
 
-<li class = "d-flex flex-column"> 
-<p> <%= index + 1%></p>
 
-<p > <strong>Name:</strong> 
-<%= patient.name %> </p>
-<p > <strong> Amount: </strong> <%= patient.amount %>
-</p>
-</li>
+<table class = "table table-hover table-responsive caption-top">
+<caption> <strong> List of patients</strong> </caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Ailment</th>
+      <th scope="col">Treatment Cost</th>
+    </tr>
+  </thead>
+  <% @patients_with_group.each_with_index do |patient,index|%>
+<tbody>
+    <tr>
+      <th scope="row"><%= index + 1%></th>
+      <td scope="row"> <%= patient.name %> </p></td>
+      
+      <td><%= patient.group.name %></td>
+      <td> &#8358 <%= patient.amount %></td>
+      
+    </tr>
 <%end%>
-</ul>
+<td class = "fw-bold">Total treatment cost </td> <td></td> <td></td> <td class = "fw-bold"> &#8358 <%=  @sum_of_amount%>
+</td>
+    </tbody>
+</table>
+
 <% else %>
 <p> No patient without group</p>
 
