@@ -3,15 +3,33 @@
 
 <ul> <% if @patients_without_group.any? %> 
 <p> The sum of amount payable by external patients is &#8358 <%=  @sum_of_amount%> </p>
-<% @patients_without_group.each do |patient|%>
-<li>
-Name of Patient: <%= patient.name %>
-<br>
-Amount &#8358 <%= patient.amount %>
 
-</li>
+<table class = "table table-hover table-responsive caption-top bg-light vw-100">
+<caption> <strong> List of patients</strong> </caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      
+      <th scope="col">Treatment Cost</th>
+    </tr>
+  </thead>
+  <%index = 0%>
+  <% @patients_without_group.each do |patient|%>
+<tbody>
+    <tr>
+      <th scope="row"><%= index = index + 1 %></th>
+      <td > <%= patient.name %> </p></td>
+      
+      
+      <td> &#8358 <%= patient.amount %></td>
+      
+    </tr>
 <%end%>
-</ul>
+<td class = "fw-bold">Total treatment cost </td> <td></td> <td></td> <td class = "fw-bold"> &#8358 <%=  @sum_of_amount%>
+</td>
+    </tbody>
+</table>
 <% else %>
 <p> No patient without group</p>
 

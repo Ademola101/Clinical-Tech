@@ -29,11 +29,11 @@
 <%= form.collection_select(:group_id, Group.all, :id, :name, {include_blank: true} ,{class:"form-select"}) %>
   <br />
 
-<span> <%= form.submit class:"btn btn-success" %> </span>
-</form>
+<span> <%= form.submit class:"btn btn-success" %> <%= link_to("Back", :back, class: "me-3 btn btn-danger") %> </span>
+</form> 
 <%end%></div>
 
-<p> <%= link_to("Back", :back)%> </p>
+
 
 
 
