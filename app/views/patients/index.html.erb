@@ -1,8 +1,8 @@
 
-<p>External Patients</p>
+<h2 class = "d-flex justify-content-center">Patients without group</h2>
 
 <ul> <% if @patients_without_group.any? %> 
-<p> The sum of amount payable by external patients is &#8358 <%=  @sum_of_amount%> </p>
+
 
 <table class = "table table-hover table-responsive caption-top bg-light vw-100">
 <caption> <strong> List of patients</strong> </caption>
@@ -26,7 +26,7 @@
       
     </tr>
 <%end%>
-<td class = "fw-bold">Total treatment cost </td> <td></td> <td></td> <td class = "fw-bold"> &#8358 <%=  @sum_of_amount%>
+<td class = "fw-bold">Total treatment cost </td> <td></td>  <td class = "fw-bold"> &#8358 <%=  @sum_of_amount%>
 </td>
     </tbody>
 </table>
@@ -35,4 +35,5 @@
 
 <% end%>
 
-<p> <%= link_to("Back", :back)%> </p>
+<p> <%= link_to("Back", :back, class:"fw-bold text-decoration-none text-secondary")%> </p>
+<div class = "d-flex justify-content-between mt-4"> <p><%= link_to('Add new patient', new_patient_url, class:"fw-bold text-decoration-none text-secondary")%> </p>
