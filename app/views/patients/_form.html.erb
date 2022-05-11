@@ -4,7 +4,7 @@
 
 <div class = "container-fluid d-flex justify-content-center"> <%= form_for @patient do |form|%>
 
-<p> Creater User  </p > <%= current_user.email%> 
+<p class = "fs-3 fw-bold"> Create Patient  </p > 
 
 <form class="form-control"> 
  <div>
@@ -15,12 +15,12 @@
 </div> 
 <div class = "mt-2" >
 
-<%= form.label :amount, class:"form-label fw-bold" %> <br>
+<%= form.label "Treatment cost", class:"form-label fw-bold" %> <br>
 <%= form.text_field :amount, size:"48", class:"form-control "%>
       
 </div> 
 
-<div><%= form.label "Select patient group", class: "mt-2" %>
+<div><%= form.label "Select patient group:", class: "mt-2 fw-bold " %>
 
 <%# <%= select('patients', 'groups_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %> 
 
@@ -29,7 +29,7 @@
 <%= form.collection_select(:group_id, Group.all, :id, :name, {include_blank: true} ,{class:"form-select"}) %>
   <br />
 
-<div> <%= form.submit%> </div>
+<span> <%= form.submit class:"btn btn-success" %> </span>
 </form>
 <%end%></div>
 
