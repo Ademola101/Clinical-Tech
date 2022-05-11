@@ -3,12 +3,12 @@
 <div class = "mt-2">
 
 
-<h1 class = "mt-4">All Patients</h1>
+<h1 class = "mt-4 fs-4 text-center">All Patients</h1>
 
 <ul> <% if @patients_with_group %> 
 
 
-<table class = "table table-hover table-responsive caption-top">
+<table class = "table table-hover table-responsive caption-top bg-light vw-100">
 <caption> <strong> List of patients</strong> </caption>
   <thead>
     <tr>
@@ -22,7 +22,7 @@
 <tbody>
     <tr>
       <th scope="row"><%= index + 1%></th>
-      <td scope="row"> <%= patient.name %> </p></td>
+      <td > <%= patient.name %> </p></td>
       
       <td><%= patient.group.name %></td>
       <td> &#8358 <%= patient.amount %></td>
@@ -39,8 +39,8 @@
 
 <% end%>
 
+<div class = "d-flex justify-content-between mt-4"> <p><%= link_to('Add new patient', new_patient_url, class:"fw-bold text-decoration-none text-secondary")%> </p>
+<p> <%= link_to('External Patients', patients_path, class:"fw-bold text-decoration-none text-secondary")%> </p>
+<p> <%= link_to("Back", :back, class:"fw-bold text-decoration-none text-secondary")%> </p>
+ </div>
 
-<p><%= link_to('Add new patient', new_patient_url	)%> </p>
-<p> <%= link_to('External Patients', patients_path)%> </p>
-<p> <%= link_to("Back", :back)%> </p>
-</div>
