@@ -1,19 +1,22 @@
 
-<p>Patient Information</p>
+<p class = "container-fluid d-flex justify-content-center mt-4 fs-3 fw-bold text-black-50">Patient Information</p>
+<div>
 
-<div> <%= form_for @patient do |form|%>
+<div class = "container-fluid d-flex justify-content-center"> <%= form_for @patient do |form|%>
 
-<p> Creater by user  </p > <%= current_user.email%> 
+<p> Creater User  </p > <%= current_user.email%> 
+
+<form class="form-control"> 
  <div>
-<%= form.label :name %> <br>
-<%= form.text_field :name%>
+<%= form.label :name, class:"form-label"%> <br>
+<%= form.text_field :name, size:"48"%>
 
       
 </div> 
-<div>
+<div >
 
 <%= form.label :amount %> <br>
-<%= form.text_field :amount%>
+<%= form.text_field :amount, size:"48", class:"form-control"%>
       
 </div> 
 <h2>Assign group</h2>
@@ -22,14 +25,17 @@
 
 <%# <%= select('patients', 'groups_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %> 
 
-<%= form.collection_select :group_id, Group.all, :id, :name, :include_blank => true %>
+<%= form.collection_select :group_id, Group.all, :id, :name, :include_blank => true, class:"form-select" %>
 </div>
 
   <br />
 
 <div> <%= form.submit%> </div>
-
+</form>
 <%end%></div>
 
 <p> <%= link_to("Back", :back)%> </p>
 
+
+
+</div>
