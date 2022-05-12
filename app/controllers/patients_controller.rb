@@ -19,6 +19,7 @@ class PatientsController < ApplicationController
       flash[:notice] = "Patient #{@patient.name} created "
       redirect_to my_patients_path
     elsif @patient.save && @patient.group.nil?
+      flash[:notice] = "Patient #{@patient.name} created without a group"
       redirect_to patients_path
     else
       render :new, status: :unprocessable_entity
