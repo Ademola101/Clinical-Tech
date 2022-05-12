@@ -16,6 +16,7 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
     @patient.patient_creator_id= current_user.id
     if @patient.save && @patient.group.present?
+      flash[:notice] = "Patient #{@patient.name} created "
       redirect_to my_patients_path
     elsif @patient.save && @patient.group.nil?
       redirect_to patients_path

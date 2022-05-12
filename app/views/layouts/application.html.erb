@@ -14,7 +14,12 @@
   </head>
 
   <body class = "roboto">
+
 <%= render 'groups/header' %>
+ <div class= "fs-4 fw-normal d-flex justify-content-center align-items-center text-success" >
+ <%= flash[:alert]%>
+  <%= flash[:notice]%>
+ </div> 
     <%= yield %>
   </body>
 </html>
