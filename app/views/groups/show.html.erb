@@ -4,15 +4,35 @@ The <%= @group.name%> patient transactions
 </h2>
 
 <section>
-<% @group.patients.each do |gr|%>
-<div class = "d-flex">
-<div>
 
-<%= gr.name%> <br>
-<%= gr.amount%>
-</div>
-</div>
 
-<% end%>
+<table class = "table table-hover table-responsive caption-top bg-light vw-100">
+<caption> <strong> List of patients</strong> </caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      
+      <th scope="col">Treatment Cost</th>
+    </tr>
+  </thead>
+  <%index = 0%>
+  <% @group.patients.each do |gr|%>
+<tbody>
+    <tr>
+      <th scope="row"><%= index = index + 1 %></th>
+      <td > <%= gr.name %> </p></td>
+      
+      
+      <td> &#8358 <%= gr.amount %></td>
+      
+    </tr>
+<%end%>
+<td class = "fw-bold">Total treatment cost </td> <td></td>  <td class = "fw-bold"> &#8358 <%=  @sum_of_amount%>
+</td>
+    </tbody>
+</table>
+
+
 </section>
 <p> <%= link_to("Back", :back)%> </p>
