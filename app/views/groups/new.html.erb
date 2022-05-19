@@ -1,19 +1,19 @@
 
 
-<div> <%= form_with(model: @group, local: true, multipart: true) do |form|%> <div>
+<div class = "container-fluid d-flex justify-content-center align-items-center"> <%= form_with(model: @group, local: true, multipart: true) do |form|%> <div>
 <div>
-<%= form.label :name %> <br>
-<%= form.text_field :name%>
+<%= form.label :name, class:"form-label fw-bold"%> <br>
+<%= form.text_field :name, size:"48", class:"form-control"%>
 </div>
       
 
 <div>
 
-<%= form.label :icon %> <br>
-<%= form.text_field :amount%>
+<%= form.label :icon, class:"form-label fw-bold"%> <br>
+<%= form.text_field :amount, size:"48", class:"form-control"%>
 </div>
 
-<div><%= form.label :thumbnail, "Project Icon" %> <br>
+<div><%= form.label :thumbnail,   "Project Icon", class:"form-label fw-bold" %> <br>
 <%= form.file_field :thumbnail %>
       
 </div> 
