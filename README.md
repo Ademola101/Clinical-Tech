@@ -1,7 +1,25 @@
 
 ## Clinical TECH
 
-Health tech application that groups patients with similar ailments to match with a specialized doctor for a medical appointment.
+<table>
+<tr>
+<td>
+  Health tech application that groups patients with similar ailments to match with a specialized doctor for a medical appointment.
+</td>
+</tr>
+</table>
+
+## Demo
+
+Here is a working Demo : <https://damp-badlands-01458.herokuapp.com/>
+
+
+## Built with
+- Ruby on Rails
+- Bootstrap
+- MySQL
+- Heroku
+
 
 
 ##### Prerequisites
