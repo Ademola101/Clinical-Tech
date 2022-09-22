@@ -1,0 +1,16 @@
+.img_res {
+  height: 50px;
+  width: auto;
+}
+
+.patient-fw {
+  font-weight: bolder;
+}
+
+.roboto {
+  font-family: 'Roboto' !important;
+}
+
+.p_color {
+  color:dimgrey
+}

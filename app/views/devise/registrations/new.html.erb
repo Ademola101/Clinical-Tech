@@ -1,0 +1,33 @@
+<h2 class = "d-flex justify-content-center m-3 fw-bold">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<div class = "d-flex justify-content-center align-items-center flex-column">
+<div class="field">
+    <%= f.label :email, class: "form-label fw-bold"%><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", size:"48", class:"form-control mb-3" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, class: "form-label fw-bold"  %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", size:"48", class:"form-control mb-3" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation, class: "form-label fw-bold"  %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password",size:"48", class:"form-control mb-3" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up", class:"btn btn-success" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+
+
+</div>
+  

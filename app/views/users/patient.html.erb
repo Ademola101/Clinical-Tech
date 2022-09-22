@@ -1,0 +1,46 @@
+<div class = "d-flex justify-content-center">
+
+<div class = "mt-2">
+
+
+<h1 class = "mt-4 fs-4 text-center">All Patients</h1>
+
+<ul> <% if @patients_with_group %> 
+
+
+<table class = "table table-hover table-responsive caption-top bg-light vw-100">
+<caption> <strong> List of patients</strong> </caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Ailment</th>
+      <th scope="col">Treatment Cost</th>
+    </tr>
+  </thead>
+  <% @patients_with_group.each_with_index do |patient,index|%>
+<tbody>
+    <tr>
+      <th scope="row"><%= index + 1%></th>
+      <td > <%= patient.name %> </p></td>
+      
+      <td><%= patient.group.name %></td>
+      <td> &#8358 <%= patient.amount %></td>
+      
+    </tr>
+<%end%>
+<td class = "fw-bold">Total treatment cost </td> <td></td> <td></td> <td class = "fw-bold"> &#8358 <%=  @sum_of_amount%>
+</td>
+    </tbody>
+</table>
+
+<% else %>
+<p> No patient without group</p>
+
+<% end%>
+
+<div class = "d-flex justify-content-between mt-4"> <p><%= link_to('Add new patient', new_patient_url, class:"fw-bold btn btn-primary text-decoration-none")%> </p>
+<p> <%= link_to('External Patients', patients_path, class:"fw-bold text-decoration-none btn btn-primary")%> </p>
+<p> <%= link_to("Back", :back, class:"fw-bold text-decoration-none btn btn-primary")%> </p>
+ </div>
+

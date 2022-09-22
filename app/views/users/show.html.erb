@@ -1,0 +1,14 @@
+<h1>
+Welcome
+
+</h1>
+
+<p>
+<% if @patient %> <div>
+<%=@patients.each do |patient| %>
+<p>
+<%= patient.name%>
+</p>
+  </div>
+<% end %>
+</p>

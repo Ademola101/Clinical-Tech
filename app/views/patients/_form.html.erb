@@ -1,0 +1,40 @@
+
+<p class = "container-fluid d-flex justify-content-center mt-4 fs-3 fw-bold text-black-50">Patient Information</p>
+<div>
+
+<div class = "container-fluid d-flex justify-content-center"> <%= form_for @patient do |form|%>
+
+<p class = "fs-3 fw-bold"> Create Patient  </p > 
+
+<form class="form-control"> 
+ <div>
+<%= form.label :name, class:"form-label fw-bold"%> <br>
+<%= form.text_field :name, size:"48", class:"form-control"%>
+
+      
+</div> 
+<div class = "mt-2" >
+
+<%= form.label "Treatment cost", class:"form-label fw-bold" %> <br>
+<%= form.text_field :amount, size:"48", class:"form-control "%>
+      
+</div> 
+
+<div><%= form.label "Select patient group:", class: "mt-2 fw-bold " %>
+
+<%# <%= select('patients', 'groups_id', Group.all.collect {|g| [g.name, g.id]}, {include_blank: true}) %> 
+
+
+</div>
+<%= form.collection_select(:group_id, Group.all, :id, :name, {include_blank: true} ,{class:"form-select"}) %>
+  <br />
+
+<span> <%= form.submit class:"btn btn-success" %> <%= link_to("Back", :back, class: "me-3 btn btn-danger") %> </span>
+</form> 
+<%end%></div>
+
+
+
+
+
+</div>

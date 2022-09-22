@@ -1,0 +1,23 @@
+
+
+<div class = "container-fluid d-flex justify-content-center align-items-center"> <%= form_with(model: @group, local: true, multipart: true) do |form|%> <div>
+<div>
+<%= form.label :name, class:"form-label fw-bold"%> <br>
+<%= form.text_field :name, size:"48", class:"form-control"%>
+</div>
+      
+
+<div>
+
+<%= form.label :icon, class:"form-label fw-bold"%> <br>
+<%= form.text_field :amount, size:"48", class:"form-control"%>
+</div>
+
+<div><%= form.label :thumbnail,   "Project Icon", class:"form-label fw-bold" %> <br>
+<%= form.file_field :thumbnail %>
+      
+</div> 
+
+<div> <%= form.submit%> </div>
+
+<%end%></div>
