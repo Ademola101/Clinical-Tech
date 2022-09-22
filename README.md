@@ -11,7 +11,7 @@
 
 ## Demo
 
-Here is a working Demo : <https://damp-badlands-01458.herokuapp.com/>
+Here is a working Demo : [https://clinicaltech.herokuapp.com/](https://clinicaltech.herokuapp.com/)
 
 
 ## Built with
